@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """ The Console Module """
-
-
 import cmd
+
 
 class Console(cmd.Cmd):
     """
@@ -30,6 +29,7 @@ class Console(cmd.Cmd):
         if self.file:
             self.file.close()
             self.file = None
+
 
 if __name__ == '__main__':
     Console().cmdloop()

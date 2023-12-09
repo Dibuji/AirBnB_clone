@@ -2,6 +2,7 @@ from models.base_model import BaseModel
 from datetime import datetime
 import unittest
 
+
 class TestBaseModel(unittest.TestCase):
 
     def setUp(self):
