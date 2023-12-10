@@ -10,6 +10,7 @@ class BaseModel:
     """
 
     def __init__(self, *args, **kwargs):
+        """initializes the instance"""
         if kwargs:
             if "__class__" in kwargs:
                 del kwargs["__class__"]
