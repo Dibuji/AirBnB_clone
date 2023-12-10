@@ -3,7 +3,7 @@
 import cmd
 
 
-class Console(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """
         The class that defines the Console
     """
@@ -32,4 +32,4 @@ class Console(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    Console().cmdloop()
+    HBNBCommand().cmdloop()
