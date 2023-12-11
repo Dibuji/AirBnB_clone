@@ -31,7 +31,6 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = self.created_at
             storage.new(self)
-            print("Called storage.new(self) for a new instance.")
 
     def save(self):
         """Updates the 'updated_at' attribute"""
