@@ -30,19 +30,18 @@ class FileStorage:
 
     def reload(self):
         """Method to deserialize JSON"""
+        from models.base_model import BaseModel
+
         try:
             with open(self.__file_path, 'r') as file:
                 data = json.load(file)
 
             for key, obj_dict in data.items():
                 class_name, obj_id = key.split('.')
-                class_obj = {'BaseModel': BaseModel}[class_name]
-                instance = class_obj(**obj_dict)
-                self.__objects[key] = instance
+                class_obj = {'BaseModel': BaseModel}.get(class_name)
+                if class_obj:
+                    instance = class_obj(**obj_dict)
+                    self.__objects[key] = instance
 
         except FileNotFoundError:
             pass
-        except json.JSONDecodeError as e:
-            print(f"Error decoding JSON: {e}")
-        except Exception as e:
-            print(f"An unexpected error occurred during file reload: {e}")
